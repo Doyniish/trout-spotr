@@ -1,0 +1,35 @@
+'use strict';
+
+/**
+ * @ngdoc service
+ * @name troutDashApp.GeometryApiService
+ * @description
+ * # GeometryApiService
+ * Factory in the troutDashApp.
+ */
+angular.module('troutSpotr')
+  .factory('GeometryApiService', ['$rootScope', '$cacheFactory', '$http', '$q', '$timeout',
+    function ($rootScope, $cacheFactory, $http, $q, $timeout) {
+    function GeometryApiService() {
+
+    }
+
+    GeometryApiService.prototype = {
+      getRegionGeometries: function() {
+        var deferred = $q.defer();
+
+          $timeout(function() {
+            var gettingData = $http.get('./data/regionGeometry.json')
+            .then(function(response) {
+              return response.data;
+            });
+
+            deferred.resolve(gettingData);
+          }, 1000);
+
+          return deferred.promise;
+      }
+    };
+
+    return new GeometryApiService();
+  }]);
