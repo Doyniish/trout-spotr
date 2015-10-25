@@ -1,6 +1,6 @@
 'use strict';
 var createPath = function(stateId, regionId) {
-	return stateId + '/' + regionId + '.topo.json';
+  return stateId + '/' + regionId + '.topo.json';
 };
 /**
  * @ngdoc service
@@ -10,25 +10,25 @@ var createPath = function(stateId, regionId) {
  * Factory in the troutDashApp.
  */
 angular.module('troutSpotr')
-  .factory('RegionApiService', ['BaseApiService', function (BaseApiService) {
-    var RegionApiService = function () {
-        BaseApiService.call(this);
-        this.logCache();
+  .factory('RegionApiService', ['BaseApiService', function(BaseApiService) {
+    var RegionApiService = function() {
+      BaseApiService.call(this);
+      this.logCache();
     };
 
     var proto = RegionApiService.prototype = Object.create(BaseApiService.prototype);
 
     proto.getRegion = function(stateId, regionId) {
-    	if (stateId == null) {
-			throw new Error('stateId cannot be null');
-		}
+      if (stateId == null) {
+        throw new Error('stateId cannot be null');
+      }
 
-		if (regionId == null) {
-			throw new Error('regionId cannot be null');
-		}
+      if (regionId == null) {
+        throw new Error('regionId cannot be null');
+      }
 
-		var path = createPath(stateId, regionId);
-        return this.doCall({}, 'assets/data/' + path);
+      var path = createPath(stateId, regionId);
+      return this.doCall({}, 'assets/data/' + path);
     };
 
     RegionApiService.prototype = proto;

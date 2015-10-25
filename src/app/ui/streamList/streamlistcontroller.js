@@ -12,7 +12,7 @@ angular.module('troutSpotr')
 		'TableOfContentsRepository', 'RegionGeometryService', 
 		'$anchorScroll',
 		function ($scope, StreamApiService, TableOfContentsRepository, RegionGeometryService, $anchorScroll) {
-		$scope.isSmallView = true;
+		$scope.isSmallView = false;
 
 		var getInitialMapState = function() {
 			var mapState = {

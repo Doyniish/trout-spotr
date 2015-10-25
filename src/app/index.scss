@@ -3,6 +3,9 @@
 // bower:scss
 // endbower
 
+@import '_colors';
+
+
 /* ---------------------------------------------------------------------
 Original Author: 
 Contributors: 
@@ -208,12 +211,12 @@ h4 {
 
 .region-header {
     padding: 5px 8px;
-    background-color: #fccc14;
+    background-color: $BROWN_TROUT;
     position: sticky;
 }
 
 .region-header .secondary {
-    background-color: #acbb39;
+    background-color: $BROOK_TROUT;
 }
 
 .region-header .tertiary {
@@ -248,7 +251,7 @@ h4 {
 
 .statusText {
     display: table-cell;
-    color: #ce4e27;
+    color: $RAINBOW_TROUT;
     vertical-align: bottom;
     margin: 2px 0 0 0;
 }
@@ -264,14 +267,14 @@ h4 {
 }
 
 .ratio-text_numerator {
-    color: #acbb39;
+    color: $BROOK_TROUT;
     margin: 0px -2px 0px 0px;
     font-weight: bold;
     font-size: 11px;
 }
 
 .ratio-text_denominator {
-    color: #463838;
+    color: $DARK_HENDRICKSON;
     margin: 0px 0px 0px -2px;
     font-size: 11px;
 }
@@ -291,7 +294,7 @@ h4 {
 }
 
 .box-secondary {
-    background: #dfdfdf;
+    background: $COOLEST_GRAY;
 }
 
 
@@ -304,7 +307,7 @@ h4 {
 }
 
 .box-hd_minor {
-    color: #aaa;
+    color: $QUIET_GRAY;
 }
 
 .box-hd_minor + .box-hd_minor {
@@ -437,9 +440,9 @@ h4 {
   display: block; }
 
 .alert {
-    fill: #fccc14;
-    stroke: #fccc14;
-    color: #fccc14;
+    fill: $BROWN_TROUT;
+    stroke: $BROWN_TROUT;
+    color: $BROWN_TROUT;
 }
 
 .alert-none {
@@ -470,21 +473,21 @@ left: 0;
 }
 
 .species .brook {
-    fill: #acbb39;
-    color: #acbb39;
-    stroke: #acbb39;
+    fill: $BROOK_TROUT;
+    color: $BROOK_TROUT;
+    stroke: $BROOK_TROUT;
 }
 
 .species .brown {
-    fill: #fccc14;
-    stroke: #fccc14;
-    color: #fccc14;
+    fill: $BROWN_TROUT;
+    stroke: $BROWN_TROUT;
+    color: $BROWN_TROUT;
 }
 
 .species .rainbow {
-    fill: #ce4e27;
-    stroke: #ce4e27;
-    color: #ce4e27;
+    fill: $RAINBOW_TROUT;
+    stroke: $RAINBOW_TROUT;
+    color: $RAINBOW_TROUT;
 }
 
 .species .stocking.stocked {
@@ -534,16 +537,16 @@ left: 0;
 }
 
 .stream-line_restriction {
-    fill: #fccc14;
+    fill: $BROWN_TROUT;
 }
 
 .stream-line_restriction_secondary {
-    fill: #ce4e27;
+    fill: $RAINBOW_TROUT;
 }
 
 
 .stream-line_public-land {
-    fill: #acbb39;
+    fill: $BROOK_TROUT;
 }
 
 .legend {
@@ -554,11 +557,11 @@ left: 0;
 }
 
 .legend.stream-line_restriction {
-    background-color: #fccc14;
+    background-color: $BROWN_TROUT;
 }
 
 .legend.stream-line_restriction_secondary {
-    background-color: #ce4e27;
+    background-color: $RAINBOW_TROUT;
 }
 
 .stream-ratio_stream {
@@ -566,7 +569,7 @@ left: 0;
 }
 
 .stream-ratio_public-land {
-    fill: #acbb39;
+    fill: $BROOK_TROUT;
 }
 
 .stream-ratio_background {
@@ -590,7 +593,7 @@ left: 0;
 }
 
 .minimap-geography_background {
-    fill: #dfdfdf;
+    fill: $COOLEST_GRAY;
 
 }
 
@@ -601,7 +604,7 @@ left: 0;
 }
 
 .minimap-geography_county.active {
-    fill: #fccc14;
+    fill: $BROWN_TROUT;
 }
 
 .minimap-geogrpahy_region {
@@ -620,13 +623,13 @@ left: 0;
 }
 
 .minimap-geogrpahy_region:hover {
-    stroke: #fccc14;
+    stroke: $BROWN_TROUT;
 /*    stroke-dasharray: 8;
     animation: dash 1s linear infinite;*/
 }
 
 .minimap-geogrpahy_region_loading {
-    stroke: #fccc14;
+    stroke: $BROWN_TROUT;
     stroke-dasharray: 8;
     animation: dash 60s linear infinite;
 }
@@ -661,7 +664,7 @@ left: 0;
     -webkit-transition: max-height 0.8s;
     -moz-transition: max-height 0.8s;
     transition: max-height 0.8s;*/
-    background-color: #dfdfdf;
+    background-color: $COOLEST_GRAY;
     margin: 0px auto;
     height: 100%;
     width: 100%;
@@ -716,10 +719,34 @@ left: 0;
 }
 
 .roadIntersetion_public {
-    color: #acbb39;
-    stroke: #acbb39;
+    color: $BROOK_TROUT;
+    stroke: $BROOK_TROUT;
     stroke-width: 1px;
 }
+
+.roadIntersectionIndicator {
+    width: 10px;
+    height: 10px;
+    border-radius: 5px;
+    display: inline-block;
+}
+
+.troutStreamIntersection {
+    background-color: #4e7f84;
+}
+
+.troutStreamIntersection_none {
+    background-color: #97CAFF; // 
+}
+
+.roadIntersectionIndicator_public {
+    background-color: $BROOK_TROUT;
+}
+
+.roadIntersection_none {
+    visibility: hidden;
+}
+
 /* Do not remove the comments below. It's the markers used by gulp-inject to inject
    all your sass files automatically */
 // injector

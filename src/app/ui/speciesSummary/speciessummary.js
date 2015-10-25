@@ -7,11 +7,10 @@
  * # speciesSummary
  */
 angular.module('troutSpotr')
-  .directive('speciesSummary', function () {
+  .directive('speciesSummary', function() {
     return {
       templateUrl: 'app/ui/speciesSummary/speciessummarytemplate.html',
       restrict: 'A',
-      link: function postLink(scope, element, attrs) {
-      }
+      link: function postLink(scope, element, attrs) {}
     };
   });
