@@ -1,0 +1,39 @@
+@import "ui/_colors";
+
+/* ---------------------------------------------------------------------
+Original Author: Stuart Anderson
+Contributors: 
+
+Target Browsers: Anything but IE thanks
+Media Type: Screen, Projection
+Width: All Sizes
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+ Icons
+------------------------------------------------------------------------ */
+.header-container {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: nowrap;
+  justifiy-content: flex-start;
+  align-items: stretch;
+  alight-content: stretch;
+}
+
+.title {
+  vertical-align: middle;
+}
+
+.header-container .primary {
+  order: 0;
+  flex-basis: auto;
+  align-self: stretch;
+  flex-grow: 1;
+}
+
+.header-container .details {
+  order: 1;
+  flex-basis: auto;
+  align-self: flex-start;
+}

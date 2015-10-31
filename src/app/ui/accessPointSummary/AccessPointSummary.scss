@@ -1,0 +1,24 @@
+@import "ui/_colors";
+
+.access-point {
+  font-size: xx-small;
+}
+
+.access-point .numerator {
+  color: $BROOK_TROUT;
+  fill: $BROOK_TROUT;
+}
+
+.access-point .denominator {
+  color: $COOL_WATER;
+  fill: $COOL_WATER;
+}
+
+.access-point .lower {
+  align-self: bottom;
+}
+
+.access-point .hide {
+  // visibility: hidden;
+  display: none;
+}

@@ -1,0 +1,26 @@
+@import "ui/_colors";
+
+/* ---------------------------------------------------------------------
+Original Author: Stuart Anderson
+Contributors: 
+
+Target Browsers: Anything but IE thanks
+Media Type: Screen, Projection
+Width: All Sizes
+------------------------------------------------------------------------ */
+
+/* ---------------------------------------------------------------------
+ Icons
+------------------------------------------------------------------------ */
+$ICON_SIZE: 24px;
+
+.icon {
+  height: $ICON_SIZE;
+  min-width: $ICON_SIZE;
+  max-width: $ICON_SIZE;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+
+  // border: 1px solid #f0f0f0;
+}

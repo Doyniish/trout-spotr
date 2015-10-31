@@ -32,6 +32,7 @@ angular.module('troutSpotr')
 
         scope.expand = function() {
           scope.isSmall = !scope.isSmall;
+          console.log(scope.stream);
         };
 
         scope.getCounties = function() {
