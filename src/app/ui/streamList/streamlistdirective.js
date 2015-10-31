@@ -19,43 +19,28 @@ angular.module('troutSpotr')
             selectedStream: null
           };
 
-          scope.getCountyScrollBodyId = function(county) {
-            var result = '#' + scope.getCountyId(county);
-            return result;
-            // return '';
-          };
+          // scope.getScrollContainer = function() {
+          //   return '#js-list-container';
+          // };
+
+          // scope.getRegionScrollBodyId = function(region) {
+          //   var result = '#' + scope.getRegionId(region);
+          //   return result;
+          // };
+
+          // scope.getRegionId = function(region) {
+          //   var result = 'hdr-region_' + region.id;
+          //   return result;
+          // };
 
           scope.getScrollContainer = function() {
             return '#js-list-container';
           };
 
-          scope.getCountyId = function(county) {
-            return 'hdr-county_' + county.id;
-            // return '';
-          };
-
-          scope.getRegionScrollBodyId = function(region) {
-            var result = '#' + scope.getRegionId(region);
-            return result;
-          };
-
-          scope.getRegionId = function(region) {
-            var result = 'hdr-region_' + region.id;
-            return result;
-          };
-
-          scope.$watch('stage.streams', function(newStreams, oldStreams) {
-            if (newStreams == null) {
-              return;
-            }
-          });
-
           scope.$watch('stage.selectedStream', function(newSelectedStream, oldSelectedStream) {
             if (newSelectedStream == null) {
               return;
             }
-
-
           });
         }
       };

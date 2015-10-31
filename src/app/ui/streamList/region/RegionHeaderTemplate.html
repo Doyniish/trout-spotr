@@ -1,0 +1,7 @@
+<div fsm-sticky-header scroll-body="getRegionScrollBodyId(region)" scroll-stop="0" scroll-object="region" z-index-override="10100" class="sectionTitle region-header">
+    <a id="region-hdr_{{region.id}}" href="#">{{::region.name}} {{displayedCounties.length}} : {{region.children.length}}</a>
+</div>
+<div infinite-scroll='loadMoreCounties()' infinite-scroll-distance='1'>
+  <div data-ng-repeat="county in displayedCounties" id="{{::getCountyId(county)}}" data-county-header>
+  </div>
+</div>

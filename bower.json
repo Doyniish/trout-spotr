@@ -14,7 +14,8 @@
     "angular": "~1.4.2",
     "d3": "~3.5.6",
     "topojson": "^1.6.19",
-    "lodash": "^3.10.0"
+    "lodash": "^3.10.0",
+    "ngInfiniteScroll": "^1.2.1"
   },
   "devDependencies": {
     "angular-mocks": "~1.4.2"
