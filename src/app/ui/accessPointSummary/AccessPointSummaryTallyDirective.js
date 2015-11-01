@@ -1,16 +1,18 @@
 angular.module('troutSpotr')
-  .directive('accessPointSummaryTally', [function() {
+  .directive('accessPointSummaryTally', ['RectangleLayoutService', function(RectangleLayoutService) {
     'use strict';
     return {
       templateUrl: 'app/ui/accessPointSummary/AccessPointSummaryTallyTemplate.html',
       restrict: 'A',
       link: function postLink(scope , element/*, attrs*/ ) {
         var ROOT_CLASS = '.js-tally-root';
-        var WIDTH = 24;
+        var WIDTH = 32;
         var HEIGHT = 24;
 
         var troutStreamIntersections = scope.stream.AccessPoints.filter(function(i) {
           return i.IsOverOrNearTroutStreamSection;
+        }).sort(function(a) {
+          return a.IsOverOrNearPublicLand ? -100 : 100;
         });
         scope.denominator = troutStreamIntersections.length;
         var publicTroutStreamIntersections = troutStreamIntersections.filter(function(i) {
@@ -24,25 +26,40 @@ angular.module('troutSpotr')
 
         // if (scope.rows > 3) { debugger};
 
+        var generator = new RectangleLayoutService(3, 2);
+        var dimensions = generator.getBoundingBox(scope.denominator);
+        console.log(dimensions, scope.denominator);
+        var numberOfColumns = dimensions[0];
+        var numberOfRows = dimensions[1];
 
-        var boxWidth = (WIDTH / scope.rows);
-        scope.box = d3.select(element[0]).select(ROOT_CLASS);
+        var boxWidth = 3;
 
-        scope.box.selectAll('rect')
+        var widthOfContainer = numberOfColumns * boxWidth;
+        var heightOfContainer = numberOfRows * boxWidth;
+
+        var offset = [(WIDTH - widthOfContainer) * 0.5, (HEIGHT - heightOfContainer) * 0.5];
+        scope.root = d3.select(element[0]).select(ROOT_CLASS);
+        scope.container = scope.root.append('g')
+          .attr('class', 'access-points')
+          .attr('transform', 'translate(' + offset[0] + ', ' + offset[1] + ')');
+
+        scope.container.selectAll('circle')
           .data(troutStreamIntersections)
           .enter()
-          .append('rect')
-          .attr('x', function(d, index) {
-            var xPosition = ((index % scope.rows) * boxWidth) + (boxWidth * 0.9);
+          .append('circle')
+          .attr('data-length', scope.denominator)
+          .attr('data-width', numberOfColumns)
+          .attr('data-height', numberOfRows)
+          .attr('cx', function(d, index) {
+            var xPosition = ((index % numberOfColumns) * (boxWidth * 1.0));
             // console.log(xPosition);
             return xPosition;
           })
-          .attr('y', function(d, index) {
-            var yPosition = Math.floor(index / scope.rows) * boxWidth + (boxWidth * 0.9);
+          .attr('cy', function(d, index) {
+            var yPosition = Math.floor(index / numberOfColumns) * (boxWidth * 1.0);
             return yPosition;
           })
-          .attr('width', boxWidth)
-          .attr('height', boxWidth)
+          .attr('r', boxWidth * 0.5)
           .attr('class', function(d) {
             return d.IsOverOrNearPublicLand ? 'numerator' : 'denominator';
           });

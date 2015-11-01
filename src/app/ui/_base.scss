@@ -12,7 +12,7 @@ Width: All Sizes
 /* ---------------------------------------------------------------------
  Icons
 ------------------------------------------------------------------------ */
-$ICON_SIZE: 24px;
+$ICON_SIZE: 32px;
 
 .icon {
   height: $ICON_SIZE;
@@ -21,6 +21,13 @@ $ICON_SIZE: 24px;
   display: inline-flex;
   align-items: center;
   justify-content: center;
+}
 
-  // border: 1px solid #f0f0f0;
+.icon.double-wide {
+  height: $ICON_SIZE;
+  min-width: $ICON_SIZE * 2;
+  max-width: $ICON_SIZE * 2;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
 }

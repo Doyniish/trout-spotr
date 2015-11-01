@@ -23,7 +23,7 @@ angular.module('troutSpotr')
             regionGeometries: null,
             selectedRegionId: null,
             selectedCountyId: null,
-            width: 45,
+            width: 75,
             height: 45,
             isMacro: true,
 
@@ -152,7 +152,7 @@ angular.module('troutSpotr')
               .translate([0, 0])
               .scale(1)
               .scaleExtent([1, 8])
-              .size([40, 40])
+              .size([scope.minimapState.width, scope.minimapState.height])
               .on('zoom', zoomed);
 
             scope.svg = d3.select(element[0]).select(MINI_MAP_CLASS)

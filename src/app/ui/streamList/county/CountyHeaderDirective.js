@@ -24,28 +24,22 @@ angular.module('troutSpotr')
           };
 
           scope.loadMoreStreams = function(numberOfStreamsToAdd) {
-            console.log('calling loadMoreStreams');
             var numberOfDisplayedStreams = scope.displayedStreams.length;
             var numberOfChildStreams = scope.county.children.length;
 
-            numberOfStreamsToAdd = numberOfStreamsToAdd == null ? 15 : numberOfStreamsToAdd;
+            numberOfStreamsToAdd = numberOfStreamsToAdd == null ? 30 : numberOfStreamsToAdd;
             var numberOfStreamsRemaining = numberOfChildStreams - numberOfDisplayedStreams;
             numberOfStreamsToAdd = Math.min(numberOfStreamsRemaining, numberOfStreamsToAdd);
             var finalIndex = numberOfDisplayedStreams + numberOfStreamsToAdd;
-            console.log('Total streams: ', numberOfChildStreams);
-            console.log('starting to add things from ', numberOfDisplayedStreams, ' to ', finalIndex);
             for (var i = numberOfDisplayedStreams; i < finalIndex; i++) {
               var streamToInject = scope.county.children[i];
               scope.displayedStreams.push(streamToInject);
-              console.log('added stream named ', streamToInject);
             }
           };
 
           scope.getCountyScrollBodyId = function(county) {
             var result = '#' + scope.getCountyId(county);
-            console.log(result);
             return result;
-            // return '';
           };
 
           scope.getScrollContainer = function() {
@@ -54,7 +48,6 @@ angular.module('troutSpotr')
 
           scope.getCountyId = function(county) {
             return 'hdr-county_' + county.id;
-            // return '';
           };
 
           scope.init();

@@ -24,7 +24,6 @@ angular.module('troutSpotr')
           };
 
           scope.loadMoreCounties = function(numberOfCountiesToAdd) {
-            console.log('calling loadMoreStreams');
             var numberOfDisplayedCounties = scope.displayedCounties.length;
             var numberOfChildCounties = scope.region.children.length;
 
@@ -32,12 +31,9 @@ angular.module('troutSpotr')
             var numberOfCountiesRemaining = numberOfChildCounties - numberOfDisplayedCounties;
             numberOfCountiesToAdd = Math.min(numberOfCountiesRemaining, numberOfCountiesToAdd);
             var finalIndex = numberOfDisplayedCounties + numberOfCountiesToAdd;
-            console.log('Total counties: ', numberOfChildCounties);
-            console.log('starting to add things from ', numberOfDisplayedCounties, ' to ', finalIndex);
             for (var i = numberOfDisplayedCounties; i < finalIndex; i++) {
               var countyToInject = scope.region.children[i];
               scope.displayedCounties.push(countyToInject);
-              console.log('added county named ', countyToInject);
             }
           };
 
