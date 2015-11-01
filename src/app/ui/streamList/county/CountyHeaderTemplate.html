@@ -3,7 +3,7 @@
 </div>
 <div infinite-scroll='loadMoreStreams()' infinite-scroll-distance='1'>
     <div ng-class-odd="'box'" ng-class-even="'box box-secondary'" 
-      data-ng-repeat="stream in displayedStreams  | orderBy:'name'">
+      data-ng-repeat="stream in displayedStreams ">
         <div data-stream-list-item-directive>
         </div>
     </div>
