@@ -1,8 +1,4 @@
 <div data-ng-cloak id="js-list-container">
-    <!--Region Header -->
     <div data-ng-repeat="region in mapState.selectedRegion | limitTo:1 | orderBy:'name'" id="{{::getRegionId(region)}}" data-region-header>
-        <!-- <div fsm-sticky-header scroll-body="getRegionScrollBodyId(region)" scroll-stop="0" scroll-object="region" z-index-override="10100" class="sectionTitle region-header"><a id="region-hdr_{{region.id}}" href="#">{{::region.name}}</a></div>
-        <div data-ng-repeat="county in ::region.children  | orderBy:'name'" id="{{::getCountyId(county)}}" data-county-header>
-
-        </div> -->
     </div>
+</div>
