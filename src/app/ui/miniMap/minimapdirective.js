@@ -75,7 +75,6 @@ angular.module('troutSpotr')
             });
 
             if (soughtRegion.length > 0 && newRegionId !== oldRegionId) {
-              console.log('stuff');
               zoomToGeometry(soughtRegion[0]);
             }
 
@@ -104,13 +103,11 @@ angular.module('troutSpotr')
               return;
             }
 
-            console.log('new Geometries!', newGeometries);
             drawGeometries(newGeometries);
           });
 
           var drawGeometries = function(geometries) {
             var root = d3.select(element[0]);
-            console.log(root);
           };
 
           var highlightCounty = function(countyId) {
@@ -215,7 +212,6 @@ angular.module('troutSpotr')
 
           var onBackgroundClick = function() {
             var isMacroMode = scope.minimapState.isMacro;
-            console.log(isMacroMode);
             if (isMacroMode) {
               // TODO: reset state
               // TODO: set to minify
@@ -280,8 +276,6 @@ angular.module('troutSpotr')
           };
 
           function reset() {
-            console.log('reset!');
-
             scope.active.classed('active', false);
             scope.active = d3.select(null);
 
@@ -348,11 +342,12 @@ angular.module('troutSpotr')
             scope.minimapState.loadingRegion = d3.select(null);
           }
 
-          function zoomToGeometry(d) {
-            if (scope.active.node() === this) return reset();
+          function zoomToGeometry(d, t) {
+            if (scope.active.node() === this)  {
+              return reset();
+            }
             scope.active.classed('active', false);
-            scope.active = d3.select(this).classed('active', true);
-
+            scope.active = d3.select(element[0]).classed('active', true);
             var bounds = scope.path.bounds(d.geometry),
               dx = bounds[1][0] - bounds[0][0],
               dy = bounds[1][1] - bounds[0][1],
@@ -398,7 +393,6 @@ angular.module('troutSpotr')
 
           scope.getTableOfContents()
             .then(function(toc) {
-              console.log('minimap got toc');
 
               var states = _.map(toc);
               var regions = _(states)

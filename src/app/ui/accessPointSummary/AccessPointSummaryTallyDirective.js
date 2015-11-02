@@ -28,7 +28,6 @@ angular.module('troutSpotr')
 
         var generator = new RectangleLayoutService(3, 2);
         var dimensions = generator.getBoundingBox(scope.denominator);
-        console.log(dimensions, scope.denominator);
         var numberOfColumns = dimensions[0];
         var numberOfRows = dimensions[1];
 
