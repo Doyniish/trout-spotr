@@ -27,7 +27,7 @@ angular.module('troutSpotr')
             var numberOfDisplayedStreams = scope.displayedStreams.length;
             var numberOfChildStreams = scope.county.children.length;
 
-            numberOfStreamsToAdd = numberOfStreamsToAdd == null ? 30 : numberOfStreamsToAdd;
+            numberOfStreamsToAdd = numberOfStreamsToAdd == null ? 60 : numberOfStreamsToAdd;
             var numberOfStreamsRemaining = numberOfChildStreams - numberOfDisplayedStreams;
             numberOfStreamsToAdd = Math.min(numberOfStreamsRemaining, numberOfStreamsToAdd);
             var finalIndex = numberOfDisplayedStreams + numberOfStreamsToAdd;
