@@ -75,6 +75,7 @@ angular.module('troutSpotr')
             });
 
             if (soughtRegion.length > 0 && newRegionId !== oldRegionId) {
+              console.log('stuff');
               zoomToGeometry(soughtRegion[0]);
             }
 
