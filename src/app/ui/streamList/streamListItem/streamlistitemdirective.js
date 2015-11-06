@@ -12,7 +12,9 @@ angular.module('troutSpotr')
       templateUrl: 'app/ui/streamList/streamListItem/streamlistitemtemplate.html',
       restrict: 'A',
       link: function postLink(scope, element, attrs) {
+        console.log(scope.stream);
         scope.isSmall = true;
+        scope.stream.AccessPoints = _.uniq(scope.stream.AccessPoints, 'LinearOffset');
         scope.isAlertSymbolDisplayed = function() {
           if (scope.isSmall === false) {
             return false;

@@ -171,10 +171,6 @@ h4 {
   width: 100%;
 }
 
-.restrictions li {
-  margin-bottom: 5px;
-}
-
 /* ---------------------------------------------------------------------
  Media
 ------------------------------------------------------------------------ */
@@ -188,7 +184,6 @@ h4 {
 }
 
 .media-hd {
-  margin-right: 2px;
   float: left;
 }
 
@@ -288,7 +283,7 @@ h4 {
 }
 
 .box-secondary {
-  background: $COOLEST_GRAY;
+  // background: $COOLEST_GRAY;
 }
 
 .box.box_small {
@@ -487,9 +482,9 @@ h4 {
 }
 
 .species .brook {
-  fill: $BROOK_TROUT;
-  color: $BROOK_TROUT;
-  stroke: $BROOK_TROUT;
+  fill: $COOL_WATER;
+  color: $COOL_WATER;
+  stroke: $COOL_WATER;
 }
 
 .species .brown {
@@ -562,21 +557,6 @@ h4 {
 
 .stream-line_public-land {
   fill: $BROOK_TROUT;
-}
-
-.legend {
-  width: 7px;
-  height: 5px;
-  display: inline-block;
-  margin: 3px 4px 0 0;
-}
-
-.legend.stream-line_restriction {
-  background-color: $BROWN_TROUT;
-}
-
-.legend.stream-line_restriction_secondary {
-  background-color: $RAINBOW_TROUT;
 }
 
 .stream-ratio_stream {
@@ -735,9 +715,31 @@ h4 {
 }
 
 .roadIntersetion_public {
-  color: $BROOK_TROUT;
-  stroke: $BROOK_TROUT;
+  color: $DARK_HENDRICKSON;
+  stroke: $DARK_HENDRICKSON;
+  fill: none;
   stroke-width: 1px;
+  opacity: 0;
+}
+
+.stream-line_roadIntersections {
+  opacity: 1;
+}
+
+.roadIntersetion_private {
+  color: $DARK_HENDRICKSON;
+  stroke: $DARK_HENDRICKSON;
+  fill: none;
+  stroke-width: 1px;
+  opacity: 0;
+}
+
+.roadIntersetion_inactive {
+  color: $QUIET_GRAY;
+  stroke: $QUIET_GRAY;
+  fill: none;
+  stroke-width: 1px;
+  opacity: 0;
 }
 
 .roadIntersectionIndicator {
@@ -745,6 +747,10 @@ h4 {
   height: 10px;
   border-radius: 5px;
   display: inline-block;
+}
+
+.intersection {
+  margin-top: 3px;
 }
 
 .troutStreamIntersection {

@@ -12,7 +12,9 @@ Width: All Sizes
 /* ---------------------------------------------------------------------
  Icons
 ------------------------------------------------------------------------ */
-$ICON_SIZE: 32px;
+$ICON_SIZE: 24px;
+$ICON_SIZE_HALF: 12px;
+$ICON_SIZE_DOUBLE: 48px;
 
 .icon {
   height: $ICON_SIZE;
@@ -23,10 +25,19 @@ $ICON_SIZE: 32px;
   justify-content: center;
 }
 
-.icon.double-wide {
+.icon.icon_half-wide {
+  height: $ICON_SIZE_HALF;
+  min-width: $ICON_SIZE_HALF;
+  max-width: $ICON_SIZE_HALF;
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.icon.icon_double-wide {
   height: $ICON_SIZE;
-  min-width: $ICON_SIZE * 2;
-  max-width: $ICON_SIZE * 2;
+  min-width: $ICON_SIZE_DOUBLE;
+  max-width: $ICON_SIZE_DOUBLE;
   display: inline-flex;
   align-items: center;
   justify-content: center;

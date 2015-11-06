@@ -5,6 +5,7 @@ angular.module('troutSpotr')
       templateUrl: 'app/ui/accessPointSummary/AccessPointSummaryTemplate.html',
       restrict: 'A',
       link: function postLink(scope /*, element, attrs*/ ) {
+        scope.stream.AccessPoints = _.uniq(scope.stream.AccessPoints, 'LinearOffset');
         var troutStreamIntersections = scope.stream.AccessPoints.filter(function(i) {
           return i.IsOverOrNearTroutStreamSection;
         });

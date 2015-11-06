@@ -1,20 +1,24 @@
-<div class="box" data-stream-id="{{::stream.Id}}">
+<div class="stream-list-item" data-stream-id="{{::stream.Id}}">
     <div>
         <div data-stream-list-item-header></div>
         <div data-ng-if="isSmall === false">
             <div class="containerBody grid-row">
-                <div class="grid-row-col_12of12">
-                    <div data-stream-line></div>
+                <div class="grid-row-col_12of12" data-stream-line>
+                    
                 </div>
             </div>
             <div class="grid-row">
                 <div class="grid-row-col grid-row-col_9of12 media_list">
                     <div data-ng-if="stream.Restrictions.length > 0" data-restriction-legend>
                     </div>
+                    <div class="sectionTitle">
+                        <span class="icon icon_half-wide"></span>Access Points
+                    </div>
                     <div data-ng-repeat="accessPoint in stream.AccessPoints | orderBy:'LinearOffset':true">
                         <span class="roadIntersectionIndicator" data-ng-class="{'roadIntersectionIndicator_public': accessPoint.IsOverOrNearPublicLand}"></span>
                         <span class="roadIntersectionIndicator troutStreamIntersection" data-ng-class="{'troutStreamIntersection_none': accessPoint.IsOverOrNearTroutStreamSection === false}"></span>
-                        <a class="heading" target="_blank" href="https://www.google.com/maps/@{{accessPoint.Latitude}},{{accessPoint.Longitude}},17z">{{::accessPoint.Name}}</a>
+                        <span>{{::accessPoint.LinearOffset  | number:2}} </span>
+                        <a class="heading intersection" target="_blank" href="https://www.google.com/maps/@{{accessPoint.Latitude}},{{accessPoint.Longitude}},17z">{{::accessPoint.Name}}</a>
                     </div>
                 </div>
                 <div class="grid-row-col grid-row-col_3of12">

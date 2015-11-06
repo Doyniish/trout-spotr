@@ -18,8 +18,10 @@ angular.module('troutSpotr')
         }
         var inverseLength = 1 / length;
         scope.stage = {
-          width: element.width()
+          width: element.width() - 10
         };
+
+        var ANIMATION_SPEED = 500;
 
         var createTickMarks = function(LengthMiles) {
           var clampedLength = Math.floor(length);
@@ -84,17 +86,11 @@ angular.module('troutSpotr')
             .attr('height', 11)
             .attr('rx', 4)
             .attr('ry', 4)
-            .attr('class', 'public-land');
-
-
-          // STREAM LINE
-          scope.streamLine.stream = scope.streamLine.append('g')
-            .attr('class', 'stream-line_stream')
-            .append('rect')
-            .attr('x', 0)
-            .attr('y', 3)
-            .attr('height', 5)
-            .attr('width', scope.stage.width);
+            .attr('class', 'public-land')
+            .attr('style', 'opacity: 0;')
+            .transition()
+            .delay(3 * ANIMATION_SPEED)
+            .attr('style', 'opacity: 1');
 
           // LAKES
           // Prepare
@@ -102,7 +98,7 @@ angular.module('troutSpotr')
             return new LinearReferenceViewModel(segment, inverseLength);
           });
 
-          scope.accessPoints = scope.stream.AccessPoints;
+          
 
           // Stage
           scope.streamLine.lakes = scope.streamLine.append('g')
@@ -122,7 +118,60 @@ angular.module('troutSpotr')
             .attr('height', 9)
             .attr('rx', 4)
             .attr('ry', 4)
-            .attr('class', 'stream-line_stream');
+            .attr('class', 'stream-line_stream')
+            .attr('style', 'opacity: 0;')
+            .transition()
+            .delay(5 * ANIMATION_SPEED)
+            .attr('style', 'opacity: 1');
+
+          var tickMarks = createTickMarks(length);
+          var firstMark = tickMarks[0];
+
+          firstMark.width = 1;
+          firstMark.height = 5;
+          scope.streamLine.tickMarks = scope.streamLine
+            .append('g')
+            .attr('class', 'stream-line_grid-lines')
+            .selectAll('rect').data(tickMarks).enter()
+            .append('rect')
+            .attr('x', function(d) {
+              return scope.stage.width - d.xOffset - d.width;
+            })
+            .attr('y', function(d) {
+              return d.yOffset - 2;
+            })
+            .attr('width', function(d) {
+              return d.width;
+            })
+            .attr('height', function(d) {
+              return d.height;
+            })
+            .attr('class', 'tick')
+            .attr('style', 'opacity: 0;')
+            .transition()
+            .delay(function(d, i) {
+              return (500 / tickMarks.length) * i + (0.5 * ANIMATION_SPEED);
+            })
+            .attr('style', 'opacity: 1');;
+
+
+          // STREAM LINE
+          scope.streamLine.stream = scope.streamLine.append('g')
+            .attr('class', 'stream-line_stream')
+            .append('rect')
+            .attr('x', 0)
+            .attr('y', 5)
+            .attr('height', 1)
+            .attr('width', scope.stage.width)
+            .attr('style', 'opacity: 0;')
+            .transition()
+            .delay(0.1 * ANIMATION_SPEED)
+            .attr('style', 'opacity: 1');
+
+
+            scope.accessPoints = scope.stream.AccessPoints;
+
+          
 
 
 
@@ -149,7 +198,11 @@ angular.module('troutSpotr')
               return d.width * scope.stage.width;
             })
             .attr('height', 5)
-            .attr('class', 'stream-line_route');
+            .attr('class', 'stream-line_route')
+            .attr('style', 'opacity: 0;')
+            .transition()
+            .delay(2 * ANIMATION_SPEED)
+            .attr('style', 'opacity: 1');
 
           // RESTRICTIONS
           scope.stream.Restrictions.forEach(function(restriction, index) {
@@ -176,7 +229,11 @@ angular.module('troutSpotr')
                 return d.segment.width * scope.stage.width;
               })
               .attr('height', 5)
-              .attr('class', 'restriction');
+              .attr('class', 'restriction')
+              .attr('style', 'opacity: 0;')
+              .transition()
+              .delay(5 * ANIMATION_SPEED)
+              .attr('style', 'opacity: 1');
           });
 
           scope.streamLine.roadIntersections = scope.streamLine.append('g')
@@ -186,38 +243,30 @@ angular.module('troutSpotr')
           scope.streamLine.roadIntersections.selectAll('circle')
             .data(scope.accessPoints).enter()
             .append('circle')
-            .attr('cy', 5)
-            .attr('r', 2)
+            .attr('cy', 5.5)
+            .attr('r', 3)
             .attr('cx', function(d) {
               return (1 - (d.LinearOffset / length)) * scope.stage.width;
             })
             .attr('class', function(d) {
-              return d.IsOverOrNearPublicLand ? 'roadIntersetion_public' : 'roadIntersetion_private';
-            });
+              var isUninteresting = d.IsOverOrNearPublicLand === false && d.IsOverOrNearTroutStreamSection === false;
+              if (isUninteresting) {
+                return 'roadIntersetion_inactive';
+              }
 
-          var tickMarks = createTickMarks(length);
-          var firstMark = tickMarks[0];
+              if (d.IsOverOrNearPublicLand === false) {
+                return 'roadIntersetion_private';
+              }
+              return 'roadIntersetion_public';
+            })
+            .attr('style', 'opacity: 0;')
+            .transition()
+            .delay(function(d, i) {
+              return (500 / scope.accessPoints.length) * i + (4 * ANIMATION_SPEED);
+            })
+            .attr('style', 'opacity: 1');
 
-          firstMark.width = 1;
-          firstMark.height = 3;
-          scope.streamLine.tickMarks = scope.streamLine
-            .append('g')
-            .attr('class', 'stream-line_grid-lines')
-            .selectAll('rect').data(tickMarks).enter()
-            .append('rect')
-            .attr('x', function(d) {
-              return scope.stage.width - d.xOffset - d.width;
-            })
-            .attr('y', function(d) {
-              return d.yOffset;
-            })
-            .attr('width', function(d) {
-              return d.width;
-            })
-            .attr('height', function(d) {
-              return d.height;
-            })
-            .attr('class', 'tick');
+          
         };
 
 

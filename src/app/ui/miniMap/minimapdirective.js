@@ -48,6 +48,7 @@ angular.module('troutSpotr')
                 scope.minimapState.selectedRegionId = item.id;
                 scope.$apply();
               });
+              return;
             }
 
             if (item.type === 'county') {
@@ -55,6 +56,7 @@ angular.module('troutSpotr')
                 scope.minimapState.selectedCountyId = item.name;
                 scope.$apply();
               });
+              return;
             }
           });
 
@@ -215,7 +217,12 @@ angular.module('troutSpotr')
             if (isMacroMode) {
               // TODO: reset state
               // TODO: set to minify
+              if (scope.mapState.selectedRegion == null || scope.mapState.selectedRegion.length === 0) {
+                return;
+              }
 
+              // onRegionClick(scope.mapState.selectedRegion);
+              zoomToGeometry(scope.mapState.selectedRegion[0]);
               minifyMinimap();
 
             } else {
@@ -237,6 +244,7 @@ angular.module('troutSpotr')
             scope.minimapState.isMacro = true;
             reset();
           };
+
 
           var drawGeometryToMap = function(states, regions, counties) {
             // scope.countiesGroup = scope.counties;
@@ -347,7 +355,7 @@ angular.module('troutSpotr')
               return reset();
             }
             scope.active.classed('active', false);
-            scope.active = d3.select(element[0]).classed('active', true);
+            // scope.active = d3.select(element[0]).classed('active', true);
             var bounds = scope.path.bounds(d.geometry),
               dx = bounds[1][0] - bounds[0][0],
               dy = bounds[1][1] - bounds[0][1],

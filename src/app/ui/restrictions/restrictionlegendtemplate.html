@@ -1,12 +1,18 @@
+<div class="sectionTitle">
+  <span class="icon icon_half-wide"></span>
+    Restrictions
+  </div>
 <ul class="restrictions" data-ng-repeat="restriction in stream.Restrictions">
     <li>
         <div class="media">
-            <div class="media-hd legend" 
-            	data-ng-class="{'stream-line_restriction': $index === 0, 'stream-line_restriction_secondary': $index === 1}">
+            <div class="icon icon_half-wide media-hd ">
+              <div class="legend"
+                data-ng-class="{'stream-line_restriction': $index === 0, 'stream-line_restriction_secondary': $index === 1}">
 
+              </div>
             </div>
+              
             <span class="media-bd heading">{{restriction.FullText}}</span>
-
         </div>
     </li>
 </ul>

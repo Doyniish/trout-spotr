@@ -1,0 +1,26 @@
+@import "ui/_colors";
+@import "ui/_base";
+
+.restrictions {
+  margin: 0px 0px 0px 0px;
+  margin-right: $ICON_SIZE;
+}
+
+.restrictions li {
+  margin-bottom: 16px;
+}
+
+.legend {
+  width: 10px;
+  max-width: 10px;
+  height: 5px;
+  max-height: 5px;
+}
+
+.legend.stream-line_restriction {
+  background-color: $BROWN_TROUT;
+}
+
+.legend.stream-line_restriction_secondary {
+  background-color: $RAINBOW_TROUT;
+}

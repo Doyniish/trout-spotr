@@ -1,8 +1,10 @@
 <!--F FSM Sticky Header Placeholder County Header -->
-<div fsm-sticky-header scroll-body="getCountyScrollBodyId(county)" scroll-stop="23" scroll-object="county" z-index-override="10000" class="sectionTitle region-header">{{::county.name}} Co.
+
+<!-- fsm-sticky-header  -->
+<div fsm-sticky-header  scroll-body="getCountyScrollBodyId(county)" scroll-stop="23" scroll-object="county" z-index-override="10000" class="sectionTitle region-header">{{::county.name}} Co.
 </div>
     <div ng-class-odd="'box'" ng-class-even="'box box-secondary'" 
-      data-ng-repeat="stream in ::county.children track by stream.id">
+      data-ng-repeat="stream in county.children | orderBy : 'name' track by stream.id">
         <div data-stream-list-item-directive>
         </div>
     </div>

@@ -1,36 +1,51 @@
 <span class="icon">
     <svg preserveAspectRatio="xMidYMid meet" width="100%" height="100%"
-         viewBox="0 0 16 16" version="1.1"
+         viewBox="0 0 100 100" version="1.1"
          xmlns="http://www.w3.org/2000/svg" class="species">
         <g>
-            <g class="species brown">
-                <circle class="population" 
+            <!-- translate(50 50) rotate(90) scale(.5) translate(-50 -50)  
+translate(50 50) rotate(90) scale(.5) translate(-50 -50)  
+translate(50 50) rotate(90) scale(.5) translate(-50 -50)   -->
+            <g class="species brown" transform="translate(20, 00) scale(.5) ">
+                <path xmlns="http://www.w3.org/2000/svg" d="M94.369,34.554c0,0-0.174-0.02-0.43-0.02c-1.686,0-7.945,0.792-18.173,10.874  C65.963,36.731,54.145,31.36,38.322,31.36c-15.586,0-30.3,6.515-33.395,17.921l-0.095,0.481c-0.019,0.1-0.014,0.201,0.015,0.297  l0.14,0.461C8.016,62.036,22.583,68.64,37.98,68.64c15.705,0,28.01-5.539,37.754-14.146c11.646,11.496,18.184,11.668,18.459,11.669  c0.175-0.017,0.414-0.064,0.532-0.181C94.844,65.864,95,65.705,95,65.54V35.17C95,34.861,94.676,34.598,94.369,34.554z" 
+                class="population" 
+                    data-is-populated="{{::stream.HasBrownTrout}}" 
+                    data-ng-class="{'none': stream.HasBrownTrout === false}"/>
+                <!-- <circle class="population" 
                     data-is-populated="{{::stream.HasBrownTrout}}" 
                     data-ng-class="{'none': stream.HasBrownTrout === false}" 
                     cx="4" cy="12" r="2.5"/>
                 <circle class="stocking {{stream.HasStockedBrownTrout ? 'stocked' : 'none'}}" 
                     data-is-stocked="{{::stream.HasStockedBrownTrout}}" 
-                    cx="4" cy="12" r="2.7"/>
+                    cx="4" cy="12" r="2.7"/> -->
             </g>
 
-            <g class="species brook" >
-                <circle class="population" 
+            <g class="species brook" transform="translate(20, 30) scale(.5) ">
+                <path xmlns="http://www.w3.org/2000/svg" d="M94.369,34.554c0,0-0.174-0.02-0.43-0.02c-1.686,0-7.945,0.792-18.173,10.874  C65.963,36.731,54.145,31.36,38.322,31.36c-15.586,0-30.3,6.515-33.395,17.921l-0.095,0.481c-0.019,0.1-0.014,0.201,0.015,0.297  l0.14,0.461C8.016,62.036,22.583,68.64,37.98,68.64c15.705,0,28.01-5.539,37.754-14.146c11.646,11.496,18.184,11.668,18.459,11.669  c0.175-0.017,0.414-0.064,0.532-0.181C94.844,65.864,95,65.705,95,65.54V35.17C95,34.861,94.676,34.598,94.369,34.554z" 
+                class="population" 
+                    data-is-populated="{{::stream.HasBrookTrout}}" 
+                    data-ng-class="{'none': stream.HasBrookTrout === false}" />
+                <!-- <circle class="population" 
                     data-is-populated="{{::stream.HasBrookTrout}}" 
                     data-ng-class="{'none': stream.HasBrookTrout === false}" 
                     cx="12" cy="12" r="2.5"/>
                 <circle class="stocking {{stream.HasStockedBrookTrout ? 'stocked' : 'none'}}" 
                     data-is-stocked="{{::stream.HasStockedBrookTrout}}" 
-                    cx="12" cy="12" r="2.7"/>
+                    cx="12" cy="12" r="2.7"/> -->
             </g>
 
-            <g class="species rainbow">
-                <circle class="population" 
+            <g class="species rainbow" transform="translate(20, 60) scale(.5) ">
+                <path xmlns="http://www.w3.org/2000/svg" d="M94.369,34.554c0,0-0.174-0.02-0.43-0.02c-1.686,0-7.945,0.792-18.173,10.874  C65.963,36.731,54.145,31.36,38.322,31.36c-15.586,0-30.3,6.515-33.395,17.921l-0.095,0.481c-0.019,0.1-0.014,0.201,0.015,0.297  l0.14,0.461C8.016,62.036,22.583,68.64,37.98,68.64c15.705,0,28.01-5.539,37.754-14.146c11.646,11.496,18.184,11.668,18.459,11.669  c0.175-0.017,0.414-0.064,0.532-0.181C94.844,65.864,95,65.705,95,65.54V35.17C95,34.861,94.676,34.598,94.369,34.554z" 
+                class="population" 
+                    data-is-populated="{{::stream.HasRainbowTrout}}" 
+                    data-ng-class="{'none': stream.HasRainbowTrout === false}" />
+                <!-- <circle class="population" 
                     data-is-populated="{{::stream.HasRainbowTrout}}" 
                     data-ng-class="{'none': stream.HasRainbowTrout === false}" 
                     cx="8" cy="5.0718" r="2.5"/>
                 <circle class="stocking {{stream.HasStockedRainbowTrout ? 'stocked' : 'none'}}" 
                     data-is-stocked="{{::stream.HasStockedRainbowTrout}}" 
-                    cx="8" cy="5.0718" r="2.7"/>
+                    cx="8" cy="5.0718" r="2.7"/> -->
             </g>
         </g>
     </svg>

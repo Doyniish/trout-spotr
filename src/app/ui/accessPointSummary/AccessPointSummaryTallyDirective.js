@@ -8,7 +8,8 @@ angular.module('troutSpotr')
         var ROOT_CLASS = '.js-tally-root';
         var WIDTH = 32;
         var HEIGHT = 24;
-
+        
+        scope.stream.AccessPoints = _.uniq(scope.stream.AccessPoints, 'LinearOffset');
         var troutStreamIntersections = scope.stream.AccessPoints.filter(function(i) {
           return i.IsOverOrNearTroutStreamSection;
         }).sort(function(a) {
@@ -26,12 +27,12 @@ angular.module('troutSpotr')
 
         // if (scope.rows > 3) { debugger};
 
-        var generator = new RectangleLayoutService(3, 2);
+        var generator = new RectangleLayoutService(WIDTH, HEIGHT);
         var dimensions = generator.getBoundingBox(scope.denominator);
         var numberOfColumns = dimensions[0];
         var numberOfRows = dimensions[1];
 
-        var boxWidth = 3;
+        var boxWidth = 4;
 
         var widthOfContainer = numberOfColumns * boxWidth;
         var heightOfContainer = numberOfRows * boxWidth;

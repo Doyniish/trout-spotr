@@ -13,29 +13,30 @@ angular.module('troutSpotr')
         templateUrl: 'app/ui/streamList/county/CountyHeaderTemplate.html',
         restrict: 'A',
         link: function postLink(scope, element, attrs) {
-          scope.displayedStreams = [];
+          console.log(scope.county);
+          // scope.displayedStreams = [];
 
-          scope.init = function() {
-            scope.clearStreams();  
-          };
+          // scope.init = function() {
+          //   scope.clearStreams();  
+          // };
 
-          scope.clearStreams = function() {
-            scope.displayedStreams = [];
-          };
+          // scope.clearStreams = function() {
+          //   scope.displayedStreams = [];
+          // };
 
-          scope.loadMoreStreams = function(numberOfStreamsToAdd) {
-            var numberOfDisplayedStreams = scope.displayedStreams.length;
-            var numberOfChildStreams = scope.county.children.length;
+          // scope.loadMoreStreams = function(numberOfStreamsToAdd) {
+          //   var numberOfDisplayedStreams = scope.displayedStreams.length;
+          //   var numberOfChildStreams = scope.county.children.length;
 
-            numberOfStreamsToAdd = numberOfStreamsToAdd == null ? 60 : numberOfStreamsToAdd;
-            var numberOfStreamsRemaining = numberOfChildStreams - numberOfDisplayedStreams;
-            numberOfStreamsToAdd = Math.min(numberOfStreamsRemaining, numberOfStreamsToAdd);
-            var finalIndex = numberOfDisplayedStreams + numberOfStreamsToAdd;
-            for (var i = numberOfDisplayedStreams; i < finalIndex; i++) {
-              var streamToInject = scope.county.children[i];
-              scope.displayedStreams.push(streamToInject);
-            }
-          };
+          //   numberOfStreamsToAdd = numberOfStreamsToAdd == null ? 60 : numberOfStreamsToAdd;
+          //   var numberOfStreamsRemaining = numberOfChildStreams - numberOfDisplayedStreams;
+          //   numberOfStreamsToAdd = Math.min(numberOfStreamsRemaining, numberOfStreamsToAdd);
+          //   var finalIndex = numberOfDisplayedStreams + numberOfStreamsToAdd;
+          //   for (var i = numberOfDisplayedStreams; i < finalIndex; i++) {
+          //     var streamToInject = scope.county.children[i];
+          //     scope.displayedStreams.push(streamToInject);
+          //   }
+          // };
 
           scope.getCountyScrollBodyId = function(county) {
             var result = '#' + scope.getCountyId(county);
@@ -50,7 +51,7 @@ angular.module('troutSpotr')
             return 'hdr-county_' + county.id;
           };
 
-          scope.init();
+          // scope.init();
         }
       };
     }

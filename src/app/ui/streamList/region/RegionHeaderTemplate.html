@@ -1,6 +1,8 @@
-<div fsm-sticky-header scroll-body="getRegionScrollBodyId(region)" scroll-stop="0" scroll-object="region" z-index-override="10100" class="sectionTitle region-header">
-    <a id="region-hdr_{{region.id}}" href="#">{{::region.name}} {{displayedCounties.length}} : {{region.children.length}}</a>
+
+<!-- fsm-sticky-header -->
+<div id="region-hdr_{{region.id}}" fsm-sticky-header  scroll-body="getRegionScrollBodyId(region)" scroll-stop="0" scroll-object="region" z-index-override="10100" class="sectionTitle region-header">
+    {{::region.name}}
 </div>
 
-  <div data-ng-repeat="county in ::region.children track by county.id" id="{{::getCountyId(county)}}" data-county-header>
+  <div data-ng-repeat="county in region.children | orderBy: 'name' track by county.id" id="{{::getCountyId(county)}}" data-count-name="{{::county.name}}" data-county-header>
   </div>
