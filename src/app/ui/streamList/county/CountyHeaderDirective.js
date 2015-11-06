@@ -13,7 +13,6 @@ angular.module('troutSpotr')
         templateUrl: 'app/ui/streamList/county/CountyHeaderTemplate.html',
         restrict: 'A',
         link: function postLink(scope, element, attrs) {
-          console.log(scope.county);
           // scope.displayedStreams = [];
 
           // scope.init = function() {
